@@ -25,12 +25,12 @@ jobs:
         npm run build --if-present
         npm test --if-present
 
-  deploy:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-    - name: testing secret print
-      env:
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-      run: npm run dev
+  # deploy:
+  #   needs: [build]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: testing secret print
+  #     env:
+  #       CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  #       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  #     run: npm run dev
