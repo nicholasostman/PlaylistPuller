@@ -24,13 +24,13 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
-  deploy:
-    name: Puller CI Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: testing secret print
-      #with: to set the secrets as an input
-      env: 
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-    - run: npm run dev
+  # deploy:
+  #   name: Puller CI Deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: testing secret print
+  #     #with: to set the secrets as an input
+  #     env:
+  #       CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  #       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  #   - run: npm run dev
