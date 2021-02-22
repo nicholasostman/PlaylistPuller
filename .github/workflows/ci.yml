@@ -22,4 +22,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
-      npm ci 
+        npm ci --production
+        npm run build --if-present
+        npm test
+
+  deploy:
+    name: Playlist Puller Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: testing secret print
+      env:
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+    - run: npm run dev
