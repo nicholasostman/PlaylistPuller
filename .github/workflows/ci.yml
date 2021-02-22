@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-    
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup Node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
@@ -26,8 +25,7 @@ jobs:
     - run: npm test
 
   deploy:
-    
-    needs: build
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
     - name: testing secret print
