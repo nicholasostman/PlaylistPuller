@@ -19,8 +19,8 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-      - name: testing secret print
-        env:
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: npm run dev
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build .
+      - name: run docker
+        run: docker run -it --rm
