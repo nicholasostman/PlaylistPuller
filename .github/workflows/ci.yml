@@ -24,10 +24,10 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: testing secret print
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: testing secret print
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
